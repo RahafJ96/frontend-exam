@@ -43,9 +43,9 @@ class FavFlowers extends React.Component {
     this.setState({
       flowersObj:flower,
       index:idx,
-      flowerName:flower.flowerName,
-      flowerPhoto:flower.flowerPhoto,
-      flowerinstructions:flower.flowerinstructions,
+      flowerName:flower.name,
+      flowerPhoto:flower.photo,
+      flowerinstructions:flower.instructions,
       showModel:true,
     })
   }
@@ -59,9 +59,9 @@ class FavFlowers extends React.Component {
   submitUpdate=(e)=>{
     e.preventDefault();
     this.closeModel();
-    let newflowerName=e.target.flowerName.value;
-    let newflowerPhoto=e.target.flowerPhoto.value;
-    let newflowerinstructions=e.target.flowerinstructions.value;
+    let newflowerName=e.target.name.value;
+    let newflowerPhoto=e.target.photo.value;
+    let newflowerinstructions=e.target.instructions.value;
     const newFlowerData={
       flowerName:newflowerName,
       flowerPhoto:newflowerPhoto,
@@ -75,7 +75,7 @@ class FavFlowers extends React.Component {
       flowersObj:newFlowerData,
     }
 
-    axios.put(`http://localhost:3001/${this.state.index}`,params).then(
+    axios.put(`http://localhost:3001/updateData/${this.state.index}`,params).then(
       result=>{
         this.setState({
           favFlowersArr:result.data
@@ -96,7 +96,7 @@ class FavFlowers extends React.Component {
         </Modal.Header>
         <form onSubmit={this.submitUpdate}>
           <label>Name:</label>
-          <input type='text' defaultValue={this.state.newflowerName}></input>
+          <input type='text' defaultValue={this.state.flowerName}></input>
           <label>Photo URL:</label>
           <input type='text' defaultValue={this.state.flowerPhoto}></input>
           <label>Instructions</label>
