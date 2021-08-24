@@ -12,9 +12,9 @@ class FavFlowers extends React.Component {
       showModel: false,
       index: -1,
       flowersObj:{},
-      // flowerName:'',
-      // flowerPhoto:'',
-      // flowerinstructions:'',
+      flowerName:'',
+      flowerPhoto:'',
+      flowerinstructions:'',
     }
   }
 
