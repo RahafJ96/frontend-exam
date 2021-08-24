@@ -59,9 +59,9 @@ class FavFlowers extends React.Component {
   submitUpdate=(e)=>{
     e.preventDefault();
     this.closeModel();
-    let newflowerName=e.target.name.value;
-    let newflowerPhoto=e.target.photo.value;
-    let newflowerinstructions=e.target.instructions.value;
+    const newflowerName=e.target.name.value;
+    const newflowerPhoto=e.target.photo.value;
+    const newflowerinstructions=e.target.instructions.value;
     const newFlowerData={
       flowerName:newflowerName,
       flowerPhoto:newflowerPhoto,
@@ -116,8 +116,8 @@ class FavFlowers extends React.Component {
               <Card.Title>{flower.name}</Card.Title>
               <img src={flower.photo} style={{ width: '20rem' }} />
               <Card.Body>{flower.instructions}</Card.Body>
-              <Button onClick={()=>{this.deleteFlower(idx)}} >Delete</Button>
-              <Button onClick={()=>{this.updateFlower(flower,idx)}}>Update</Button>
+              <Button variant="danger" onClick={()=>{this.deleteFlower(idx)}} >Delete</Button>
+              <Button variant="warning" onClick={()=>{this.updateFlower(flower,idx)}}>Update</Button>
             </Card>)
         })}
       </>
